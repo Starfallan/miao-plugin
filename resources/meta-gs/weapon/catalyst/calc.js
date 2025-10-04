@@ -237,7 +237,7 @@ export default function (step, staticStep) {
       title: '绽放反应造成的伤害提升[bloom]%，月绽放反应造成的伤害提升[lunarBloom]%',
       data: {
         bloom: ({ refine }) => step(48)[refine],
-        lunarBloom: ({ params, refine }) => step(12)[refine] * (params.Moonsign || 0) >= 2 ? 2 : 1
+        lunarBloom: ({ params, refine }) => (params.Lunar === true || (params.Moonsign || 0) >= 2) ? step(12)[refine] * 2 : step(12)[refine]
       }
     },
     纺夜天镜: {
